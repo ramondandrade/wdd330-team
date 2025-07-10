@@ -33,13 +33,13 @@ export default class ProductDetails{
     }
 
     renderProductDetails(){
-
+        
         qs(".product__name").innerText = this.product.Name;
         qs(".product__image").setAttribute('src', this.product.Image);
         qs(".product__image").setAttribute('alt', this.product.Name);
         qs(".product-card__price").innerText =  `$ ${this.product.ListPrice}`;
         qs(".product__color").innerText = this.product.Colors[0].ColorName;
-        qs(".product__description").innerText = this.product.DescriptionHtmlSimple;
+        qs(".product__description").innerHTML = this.product.DescriptionHtmlSimple;
         qs("#addToCart").setAttribute('data-id', this.product.Id);
         
     }
