@@ -5,5 +5,4 @@ loadHeaderFooter();
 
 const element = document.querySelector(".product-list");
 const cartList = new ShoppingCart(element);
-
 cartList.init();
