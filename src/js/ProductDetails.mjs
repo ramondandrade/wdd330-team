@@ -7,15 +7,11 @@ export default class ProductDetails{
         this.dataSource = dataSource;
     }
 
-    init(){
+    async init(){
 
         // Get product data
-        this.dataSource.findProductById(this.productId).then((data) => {
-            this.product = data;
-            console.log(data);
-            this.renderProductDetails();
-        });
-       
+        this.product = await this.dataSource.findProductById(this.productId);
+        this.renderProductDetails();
 
         // add listener to Add to Cart button
         document.getElementById("addToCart").addEventListener("click", this.addProductToCart.bind(this));
@@ -46,7 +42,7 @@ export default class ProductDetails{
     renderProductDetails(){
         
         qs(".product__name").innerText = this.product.Name;
-        qs(".product__image").setAttribute('src', this.product.Image);
+        qs(".product__image").setAttribute('src', this.product.Images.PrimaryLarge);
         qs(".product__image").setAttribute('alt', this.product.Name);
         qs(".product-card__price").innerText =  `$ ${this.product.ListPrice}`;
         qs(".product__color").innerText = this.product.Colors[0].ColorName;
