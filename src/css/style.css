@@ -242,6 +242,17 @@ button {
   grid-column: 3;
 }
 
+.cart-badge {
+  position: absolute;
+  top: 3px;
+  left: -17px;
+  background-color: #329632;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2em 0.5em;
+  font-size: var(--small-font);
+}
+
 @keyframes cartBounce {
   0% {
     transform: scale(1);
