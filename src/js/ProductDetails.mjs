@@ -25,9 +25,21 @@ export default class ProductDetails{
     addProductToCart(){
 
         var productsListCart = getLocalStorage("so-cart") || [];
-
         productsListCart.push(this.product);
         setLocalStorage("so-cart", productsListCart);
+        this.triggerCartAnimation(qs('#addToCart'));
+        this.triggerCartAnimation(qs('#cartIcon'));
+
+    }
+
+    triggerCartAnimation(element) {
+
+        element.classList.add('bounce');
+        element.innerText = "Added to Cart...";
+        element.addEventListener('animationend', () => {
+            element.classList.remove('bounce');
+            element.innerText = "Add to Cart";
+        }, { once: true });
 
     }
 
