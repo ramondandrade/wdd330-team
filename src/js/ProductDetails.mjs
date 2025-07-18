@@ -20,7 +20,6 @@ export default class ProductDetails{
         // add listener to Add to Cart button
         document.getElementById("addToCart").addEventListener("click", this.addProductToCart.bind(this));
 
-
     }
 
     addProductToCart(){
