@@ -16,7 +16,7 @@ const productName = document.querySelector('h2.divider')?.textContent.trim();
 const currentPriceEl = document.querySelector('.product-card__price');
 const currentPrice = parseFloat(currentPriceEl?.textContent.replace('$', '') || 0);
 
-// Define original prices by product name
+// Define main prices by product name
 const originalPrices = {
   "Ajax Tent - 3-Person, 3-Season": 249.99,
 };
