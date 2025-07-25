@@ -62,4 +62,20 @@ export async function loadHeaderFooter() {
   const footerElement = document.querySelector("#main-footer");
   renderWithTemplate(footerTemplate, footerElement);
 
+  countTotalCartItems();
+
+}
+
+
+export function countTotalCartItems(){
+
+  let total = 0;
+
+  const list = getLocalStorage("so-cart");
+  if (list) {
+      total = list.length;
+  }
+
+  qs(".cart-badge").textContent = total;
+  
 }
