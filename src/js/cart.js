@@ -45,3 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
   renderCartItems(cart);
 });
+
+// Products ordered in the cart
+const li = document.createElement("li");
+li.style.display = "flex";
+li.style.flexDirection = "row";
+li.style.justifyContent = "space-between";
+li.style.alignItems = "center";
+li.style.marginBottom = "1rem";
+li.style.border = "1px solid #ccc";
+li.style.padding = "10px";
+li.style.backgroundColor = "#f8f8f8";
