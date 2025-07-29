@@ -253,6 +253,11 @@ button {
   font-size: var(--small-font);
 }
 
+.breadcrumbs {
+  padding: 10px;
+  font-size: 15px;
+}
+
 @keyframes cartBounce {
   0% {
     transform: scale(1);

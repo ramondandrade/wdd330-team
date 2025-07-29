@@ -79,3 +79,20 @@ export function countTotalCartItems(){
   qs(".cart-badge").textContent = total;
   
 }
+
+export function createBreadcrumbs(link, text){
+
+  // Create the breadcrumbs div
+  const breadcrumbs = document.createElement('div');
+  breadcrumbs.className = 'breadcrumbs';
+  breadcrumbs.innerHTML = '<a href="/">Home</a> &gt; <a href="/'+link+'">'+text+'</a>';
+
+  // Find the header
+  const header = document.querySelector('header');
+
+  // Insert breadcrumbs after the header
+  if (header && header.parentNode) {
+    header.parentNode.insertBefore(breadcrumbs, header.nextSibling);
+  }
+
+}

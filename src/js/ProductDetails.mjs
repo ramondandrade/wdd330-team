@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, qs, countTotalCartItems } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, qs, countTotalCartItems, createBreadcrumbs } from "./utils.mjs";
 
 export default class ProductDetails{
     constructor(productId, dataSource){
@@ -49,6 +49,10 @@ export default class ProductDetails{
         qs(".product__color").innerText = this.product.Colors[0].ColorName;
         qs(".product__description").innerHTML = this.product.DescriptionHtmlSimple;
         qs("#addToCart").setAttribute('data-id', this.product.Id);
+
+        const catName = this.product.Category.charAt(0).toUpperCase() + this.product.Category.slice(1);
+        const link = 'product_listing/?category='+this.product.Category;
+        createBreadcrumbs(link, catName);
         
     }
 }
