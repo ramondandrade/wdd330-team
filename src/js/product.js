@@ -13,9 +13,11 @@ product.init();
 
 // Load Dom
 window.addEventListener("DOMContentLoaded", () => {
-  const productName = document.querySelector('h2.divider')?.textContent.trim();
-  const currentPriceEl = document.querySelector('.product-card__price');
-  const currentPrice = parseFloat(currentPriceEl?.textContent.replace('$', '') || 0);
+  const productName = document.querySelector("h2.divider")?.textContent.trim();
+  const currentPriceEl = document.querySelector(".product-card__price");
+  const currentPrice = parseFloat(
+    currentPriceEl?.textContent.replace("$", "") || 0,
+  );
 
   const originalPrices = {
     "Ajax Tent - 3-Person, 3-Season": 249.99,
@@ -24,19 +26,21 @@ window.addEventListener("DOMContentLoaded", () => {
   const originalPrice = originalPrices[productName];
 
   if (originalPrice && currentPrice < originalPrice) {
-    const discountPercent = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+    const discountPercent = Math.round(
+      ((originalPrice - currentPrice) / originalPrice) * 100,
+    );
 
     // Create the badge
-    const badge = document.createElement('div');
+    const badge = document.createElement("div");
     badge.textContent = `${discountPercent}% OFF`;
-    badge.classList.add('discount-flag');
+    badge.classList.add("discount-flag");
 
     // Style
-    const imgEl = document.querySelector('img.divider');
+    const imgEl = document.querySelector("img.divider");
     if (imgEl) {
-      const wrapper = document.createElement('div');
-      wrapper.style.position = 'relative';
-      wrapper.style.display = 'inline-block';
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      wrapper.style.display = "inline-block";
 
       wrapper.appendChild(imgEl.cloneNode(true));
       wrapper.appendChild(badge);
