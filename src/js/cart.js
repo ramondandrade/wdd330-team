@@ -11,9 +11,9 @@ cartList.init();
 // Function renderCartItems
 function renderCartItems(cartItems) {
   const productList = document.querySelector(".product-list");
-  productList.innerHTML = ""; 
+  productList.innerHTML = "";
 
-  cartItems.forEach(item => {
+  cartItems.forEach((item) => {
     const li = document.createElement("li");
     li.innerHTML = `
       <span>${item.Name} - ${item.FinalPrice}</span>
@@ -24,8 +24,8 @@ function renderCartItems(cartItems) {
   });
 
   // Remove
-  document.querySelectorAll(".remove-item").forEach(button => {
-    button.addEventListener("click", event => {
+  document.querySelectorAll(".remove-item").forEach((button) => {
+    button.addEventListener("click", (event) => {
       const id = event.target.getAttribute("data-id");
       removeFromCart(id);
     });
@@ -35,7 +35,7 @@ function renderCartItems(cartItems) {
 // item from the cart
 function removeFromCart(id) {
   let cart = JSON.parse(localStorage.getItem("so-cart")) || [];
-  const updatedCart = cart.filter(item => item.Id !== id); 
+  const updatedCart = cart.filter((item) => item.Id !== id);
   localStorage.setItem("so-cart", JSON.stringify(updatedCart));
   renderCartItems(updatedCart);
 }
