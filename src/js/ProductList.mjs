@@ -32,11 +32,11 @@ export default class ProductList {
 
          if(qs("#category-name")){
             qs("#category-name").textContent = ": " + catName;
-        }
-
-        const link = 'product_listing/?category='+this.category;
-        const text = catName + " (" + this.countProducts + " items)";
-        createBreadcrumbs(link, text);
+    
+            const link = 'product_listing/?category='+this.category;
+            const text = catName + " (" + this.countProducts + " items)";
+            createBreadcrumbs(link, text);
+         }
 
     }
 
