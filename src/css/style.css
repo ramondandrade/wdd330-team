@@ -306,6 +306,34 @@ button {
   font-size: var(--small-font);
 }
 
+.breadcrumbs {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.checkout-form fieldset {
+  padding: 10px;
+  margin: 20px 0px;
+}
+
+.checkout-form fieldset > div {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+.alert > p {
+  margin: 0;
+}
+
 @keyframes cartBounce {
   0% {
     transform: scale(1);

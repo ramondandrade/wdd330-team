@@ -1,4 +1,4 @@
-import { renderListWithTemplate, qs } from "./utils.mjs";
+import { renderListWithTemplate, qs, createBreadcrumbs } from "./utils.mjs";
 
 function productCardTemplate(product) {
 
@@ -19,16 +19,24 @@ export default class ProductList {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
+        this.countProducts = 0;
     }
 
     async init() {
 
-        if(qs("#category-name")){
-            qs("#category-name").textContent = ": " + this.category.charAt(0).toUpperCase() + this.category.slice(1);
-        }
-
         const list = await this.dataSource.getData(this.category);
+        this.countProducts = list.length;
         this.renderList(list);
+
+        const catName = this.category.charAt(0).toUpperCase() + this.category.slice(1);
+
+         if(qs("#category-name")){
+            qs("#category-name").textContent = ": " + catName;
+    
+            const link = 'product_listing/?category='+this.category;
+            const text = catName + " (" + this.countProducts + " items)";
+            createBreadcrumbs(link, text);
+         }
 
     }
 
@@ -38,5 +46,6 @@ export default class ProductList {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
 
     }
+
 
 }
